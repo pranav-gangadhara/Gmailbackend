@@ -19,12 +19,12 @@ app.use(express.urlencoded({ limit: '1mb', extended: false })); // url parser
 app.use(morgan('common')); // logs requests
 
 // configure db
-const MONGO_URI =process.env.MONGO_URI ;
+
 const DEPRECATED_FIX = { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true };
 
 // connect to db
 mongoose
-  .connect(MONGO_URI, DEPRECATED_FIX)
+  .connect("mongodb+srv://pranavgangadhara:pranav@cluster0.kqtfdpk.mongodb.net/?retryWrites=true&w=majority", DEPRECATED_FIX)
   .catch((error) => console.log('❌ MongoDB connection error', error)); // listen for errors on initial connection
 
 const db = mongoose.connection;
